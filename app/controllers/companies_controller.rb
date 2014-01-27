@@ -7,11 +7,11 @@ class CompaniesController < ApplicationController
   def index
     @search = Company.search(params[:q])
     @companies = if params[:category].present?
-     Company.where(category_id: params[:category]).order('created_at').page params[:page]
+     Company.where(category_id: params[:category]).order('name').page params[:page]
    elsif params[:q].present?    
-     @search.result.order('created_at').page params[:page]
+     @search.result.order('name').page params[:page]
    else
-     Company.order('created_at').page params[:page]
+     Company.order('name').page params[:page]
    end
   end
 
