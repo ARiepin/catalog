@@ -8,7 +8,6 @@
       <th>Улица</th>
       <th>Номер дома</th>
       <th>Офис</th>
-      <th>Категория</th>
       <th></th>
       <th></th>
       <th></th>
@@ -23,10 +22,11 @@
         <td><%= company.street %></td>
         <td><%= company.street_number %></td>
         <td><%= company.apt %></td>
-        <td><%= company.category_id %></td>
         <td><%= link_to 'Показать', company %></td>
+        <% if user_signed_in? then %>
         <td><%= link_to 'Редактировать', edit_company_path(company) %></td>
         <td><%= link_to 'Удалить', company, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

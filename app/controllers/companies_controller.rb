@@ -6,7 +6,13 @@ class CompaniesController < ApplicationController
   # GET /companies.json
   def index
     @search = Company.search(params[:q])
-    @companies = @search.result.order('created_at').page params[:page]
+    @companies = if params[:category].present?
+     Company.where(category_id: params[:category]).order('created_at').page params[:page]
+   elsif params[:q].present?    
+     @search.result.order('created_at').page params[:page]
+   else
+     Company.order('created_at').page params[:page]
+   end
   end
 
   # GET /companies/1

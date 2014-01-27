@@ -16,6 +16,9 @@
 <%= flash.now[:notice] %>
 <%= flash.now[:alert] %>
 </br>
+<% Category.find_each do |category| %>
+        <%= link_to category.name, root_path(category: category.id) %>
+<% end %>
 <%= yield %>
 
 </body>
