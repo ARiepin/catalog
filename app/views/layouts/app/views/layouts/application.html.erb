@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Каталог | <%= yield(:title) %></title>
+  <title>Каталог</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -10,8 +10,6 @@
   <br>
   <%= render 'devise/menu/registration_items' %> 
   <%= render 'devise/menu/login_items' %>
-  <%= link_to 'Помощь',text_pages_help_path %>
-  <%= link_to 'О нас', text_pages_about_path %>
   <br>
 <%= flash.now[:notice] %>
 <%= flash.now[:alert] %>

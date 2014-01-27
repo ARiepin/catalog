@@ -1,7 +1,4 @@
 Catalog::Application.routes.draw do
-  get "text_pages/home"
-  get "text_pages/help"
-  get "text_pages/about"
   devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
