@@ -13,12 +13,15 @@
   <%= link_to 'Помощь',text_pages_help_path %>
   <%= link_to 'О нас', text_pages_about_path %>
   <br>
-<%= flash.now[:notice] %>
-<%= flash.now[:alert] %>
-</br>
+
+<br>
+
 <% Category.find_each do |category| %>
         <%= link_to category.name, root_path(category: category.id) %>
 <% end %>
+
+<br>
+<%= flash.now[:notice] %>
 
 <%= yield %>
 
